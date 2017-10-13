@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+  <action-mappings>
+	<!-- login.do -->
+     <action path="/login"
+            type="notice.controller.LoginAction">
+      <forward name="success" path="/Result.jsp"/>
+      <forward name="failure" path="/Login.html"/>
+      <forward name="error" path="/Fail.html"/>
+    </action>
+
+     <action path="/logout"
+            type="notice.controller.LogoutAction">
+      <forward name="success" path="/Login.html"/>
+      <forward name="failure" path="/Fail.html"/>
+    </action>
+
+    <action path="/list"
+            type="notice.controller.ListAction">
+      <forward name="success" path="/notice/NoticeList.jsp"/>
+      <forward name="error" path="/Fail.html"/>
+    </action>
+
+    <action path="/input"
+		forward="/notice/NoticeInput.jsp"/>
+
+    <action path="/save"
+            type="notice.controller.SaveAction">
+      <forward name="success" path="/Result.jsp"/>
+      <forward name="error" path="/Fail.html"/>
+    </action>
+
+    <action path="/view"
+            type="notice.controller.ViewAction">
+      <forward name="success" path="/notice/NoticeView.jsp"/>
+      <forward name="error" path="/Fail.html"/>
+    </action>
+
+    <action path="/delete"
+            type="notice.controller.DeleteAction">
+      <forward name="success" path="/Result.jsp"/>
+      <forward name="error" path="/Fail.html"/>
+    </action>
+
+  </action-mappings>
+
+  <controller processorClass="notice.controller.EncodingRequestProcessor" />
+
+</struts-config>
+
